@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RejestrOsobowy.AppWPF.Views.MainViews"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="50">
+             d:DesignHeight="50" d:DesignWidth="500">
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Canvas Height="25" Width="25" >

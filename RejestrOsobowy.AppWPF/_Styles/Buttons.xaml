@@ -1,5 +1,70 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:RejestrOsobowy.AppWPF._Styles">
-    
+
+    <Style x:Key="ButtonAdd" TargetType="{x:Type Button}">
+        <!--<Setter Property="Background" Value="#FF9B7B56" />-->
+        <Setter Property="Background" Value="{DynamicResource backgroundButton}" />
+        <Setter Property="Foreground" Value="{DynamicResource buttonMainForeground}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="MinWidth" Value="100" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border BorderThickness="1" BorderBrush="{DynamicResource colorBorderButton}"  Background="{TemplateBinding Background}" CornerRadius="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <Viewbox Grid.Column="0" Width="25" Height="25">
+                                <Canvas Width="24" Height="24">
+                                    <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="{DynamicResource colorAdd}" />
+                                </Canvas>
+                            </Viewbox>
+
+                            <ContentPresenter Grid.Column="1" x:Name="ButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource buttonMainOverBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource buttonMainOverForeground}" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource mainColorBackgroundDisabled}" />
+                <Setter Property="Foreground" Value="{DynamicResource buttonMainForegroundDisabled}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border BorderThickness="1" BorderBrush="#66000000"  Background="{TemplateBinding Background}" CornerRadius="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Viewbox Grid.Column="0" Width="25" Height="25">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="{DynamicResource colorAddDisabled}" />
+                                        </Canvas>
+                                    </Viewbox>
+
+                                    <ContentPresenter Grid.Column="1" x:Name="ButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

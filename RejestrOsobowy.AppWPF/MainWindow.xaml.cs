@@ -21,8 +21,16 @@ namespace RejestrOsobowy.AppWPF
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        MainProgram MainProgram { get; set; }
+
         public MainWindow()
         {
+            MainProgram = new MainProgram(this);
+
+            this.DataContext = new
+            {
+                MainProgram = this.MainProgram
+            };
             InitializeComponent();
         }
     }

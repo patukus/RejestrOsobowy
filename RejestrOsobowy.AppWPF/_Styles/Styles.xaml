@@ -2,4 +2,44 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:RejestrOsobowy.AppWPF._Styles">
     
+    <SolidColorBrush x:Key="ringLoading" Color="#333333" />
+    <SolidColorBrush x:Key="ringLoadingDisabled" Color="#333333" />
+    <SolidColorBrush x:Key="backgroundLoading" Color="#AA000000" />
+    <SolidColorBrush x:Key="mainColorBackground" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="mainColorBackgroundDisabled" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="mainColor" Color="#FF4b3832" />
+    <SolidColorBrush x:Key="mainColorDisabled" Color="#664B3832" />
+    <SolidColorBrush x:Key="mainIconColor" Color="#FFE8BD90" />
+    <SolidColorBrush x:Key="mainIconColorDisabled" Color="#66E8BD90" />
+    <SolidColorBrush x:Key="headerColor" Color="#FF83919F" />
+    <SolidColorBrush x:Key="headerColorDisabled" Color="#6683919F" />
+    <SolidColorBrush x:Key="buttonIconColor" Color="#FF535353" />
+    <SolidColorBrush x:Key="buttonIconColorDisabled" Color="#66535353" />
+    <SolidColorBrush x:Key="headerIconColor" Color="#FF2B2B2B" />
+    <SolidColorBrush x:Key="headerIconColorDisabled" Color="#662B2B2B" />
+    <SolidColorBrush x:Key="buttonMainOverBackground" Color="#FFC5C5C5" />
+    <SolidColorBrush x:Key="buttonMainOverForeground" Color="Black" />
+    <SolidColorBrush x:Key="buttonMainForeground" Color="Black" />
+    <SolidColorBrush x:Key="buttonMainForegroundDisabled" Color="#66000000" />
+    <SolidColorBrush x:Key="buttonMainOverBackgroundDisabled" Color="#FFC5C5C5" />
+    <SolidColorBrush x:Key="buttonMainOverForegroundDisabled" Color="#66000000" />
+    <SolidColorBrush x:Key="backgroundButton" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="borderButton" Color="#FFBEBEBE" />
+    <SolidColorBrush x:Key="colorBorderButton" Color="#FFBEBEBE" />
+    <SolidColorBrush x:Key="colorBorderDataGrid" Color="#cccccc" />
+    <SolidColorBrush x:Key="colorIsSelectedDataGrid" Color="LightGray" />
+
+    <SolidColorBrush x:Key="colorEdit" Color="#FF73C8D1" />
+    <SolidColorBrush x:Key="colorEditDisabled" Color="#6673C8D1" />
+    <SolidColorBrush x:Key="colorCancel" Color="#FFD17373" />
+    <SolidColorBrush x:Key="colorCancelDisabled" Color="#66D17373" />
+    <SolidColorBrush x:Key="colorSave" Color="#FF84D173" />
+    <SolidColorBrush x:Key="colorSaveDisabled" Color="#6684D173" />
+    <SolidColorBrush x:Key="colorAdd" Color="#FF84D173" />
+    <SolidColorBrush x:Key="colorAddDisabled" Color="#6684D173" />
+    <SolidColorBrush x:Key="colorRemove" Color="#FFD17373" />
+    <SolidColorBrush x:Key="colorRemoveDisabled" Color="#66D17373" />
+
+    <SolidColorBrush x:Key="colorSearch" Color="Black" />
+    
 </ResourceDictionary>

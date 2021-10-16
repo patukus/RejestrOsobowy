@@ -6,8 +6,8 @@
         xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:RejestrOsobowy.AppWPF"
         mc:Ignorable="d"
-        Title="Rejestr Osobowy" Height="450" Width="800">
+        Title="Rejestr Osobowy" Height="1080" Width="1920">
     <Grid>
-
+        <ContentControl x:Name="MainViewContentControl" Content="{Binding MainProgram._MainViewModel._View}" />
     </Grid>
 </metro:MetroWindow>

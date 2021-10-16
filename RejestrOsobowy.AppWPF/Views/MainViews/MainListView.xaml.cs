@@ -29,5 +29,10 @@ namespace RejestrOsobowy.AppWPF.Views.MainViews
                 vm = this.vm,
             };
         }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

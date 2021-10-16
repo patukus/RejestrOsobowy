@@ -29,5 +29,10 @@ namespace RejestrOsobowy.AppWPF.Views.MainViews
                 vm = this.vm,
             };
         }
+
+        private void AddPersonButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

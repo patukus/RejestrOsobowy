@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RejestrOsobowy.AppWPF.Views.MainViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="50" d:DesignWidth="800">
     <Grid>
-            
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="AddPersonButton" Grid.Row="1" Style="{DynamicResource ButtonAdd}" Content="Dodaj Osobę" FontSize="{Binding vm.mainProgram._MyFontSize.M}" Margin="5" Click="AddPersonButton_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>

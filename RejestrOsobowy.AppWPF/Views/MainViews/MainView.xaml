@@ -10,9 +10,9 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition x:Name="HeaderRow" Height="100"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -20,7 +20,7 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <ContentControl x:Name="MainViewContentControl" Content="{Binding vm._MainMainView}" />
+                <ContentControl x:Name="MainViewContentControl" Content="{Binding vm._MainView}" />
             </Grid>
 
             <Grid Grid.Row="2">
