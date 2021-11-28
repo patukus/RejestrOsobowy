@@ -1,4 +1,5 @@
-﻿using RejestrOsobowy.AppWPF.Interfaces;
+﻿using Newtonsoft.Json;
+using RejestrOsobowy.AppWPF.Interfaces;
 using RejestrOsobowy.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,9 @@ namespace RejestrOsobowy.AppWPF.Database.JSON
 {
     public class PersonJSON : IPerson
     {
-        public string filePath = "database.json";
+        public string FilePath { get; set; } = "database.json";
+        public List<Person> PersonList { get; set; } = new List<Person>();
+
         public bool Delete(int id)
         {
             throw new NotImplementedException();
@@ -18,22 +21,39 @@ namespace RejestrOsobowy.AppWPF.Database.JSON
 
         public List<Person> GetAll()
         {
-            throw new NotImplementedException();
+            if (File.Exists(FilePath))
+            {
+                ReadDataFromFile();
+                var list = PersonList;
+                return list;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public Person GetById(int id)
         {
-            throw new NotImplementedException();
+            if (File.Exists(FilePath))
+            {
+                ReadDataFromFile();
+                var person = PersonList.FirstOrDefault();
+                return person;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Person> GetSearch(string search)
         {
-            if (File.Exists(filePath))
+            if (File.Exists(FilePath))
             {
-
-                List<Person> list = new List<Person>();
-                
-                //list = list.Where(p => p.FirstName.Contains())
+                var ss = search.ToLower().Trim();
+                ReadDataFromFile();
+                var list = PersonList.Where(c => c.FirstName.ToLower().Contains(search) || c.LastName.ToLower().Contains(search)).ToList();               
                 return list;
             }
             else
@@ -46,16 +66,11 @@ namespace RejestrOsobowy.AppWPF.Database.JSON
         {
             try
             {
-                if(File.Exists(filePath))
-                {
-
-                }
-                else
-                {
-                    //var json = Newtonsoft.Json.JsonConvert.SerializeObject(list);
-                    //File.WriteAllText(filePath, json);
-                    
-                }
+                CheckOrCreateFile();
+                ReadDataFromFile();
+                PersonList.Add(objToInsert);
+                string jsonString = JsonConvert.SerializeObject(PersonList);
+                File.WriteAllText(FilePath, jsonString);
                 return true;
             }
             catch
@@ -68,19 +83,37 @@ namespace RejestrOsobowy.AppWPF.Database.JSON
         {
             try
             {
-                if (File.Exists(filePath))
-                {
+                ReadDataFromFile();
+                var obj = PersonList.FirstOrDefault(x => x.Id == objToUpdate.Id);
+                obj.FirstName = objToUpdate.FirstName;
+                obj.LastName = obj.LastName;
+                obj.Gender = objToUpdate.Gender;
+                obj.Age = objToUpdate.Age;
+                string jsonString = JsonConvert.SerializeObject(PersonList);
+                File.WriteAllText(FilePath, jsonString);
 
-                }
-                else
-                {
-
-                }
                 return true;
             }
             catch
             {
                 return false;
+            }
+        }
+
+        private void ReadDataFromFile()
+        {
+            using (StreamReader r = new StreamReader(FilePath))
+            {
+                string json = r.ReadToEnd();
+                PersonList = JsonConvert.DeserializeObject<List<Person>>(json);
+            }
+        }
+
+        private void CheckOrCreateFile()
+        {
+            if (!File.Exists(FilePath))
+            {
+                File.Create(FilePath).Dispose();
             }
         }
     }
