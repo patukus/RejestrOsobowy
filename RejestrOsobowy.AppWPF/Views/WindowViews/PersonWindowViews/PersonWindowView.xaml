@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="RejestrOsobowy.AppWPF.Views.WindowViews.PersonWindowViews.PersonWindowView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:RejestrOsobowy.AppWPF.Views.WindowViews.PersonWindowViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <ContentControl x:Name="HeaderViewContentControl" Content="{Binding vm._HeaderView}" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ContentControl x:Name="MainViewContentControl" Content="{Binding vm._MainView}" />
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <ContentControl x:Name="FooterViewContentControl" Content="{Binding vm._FooterView}" />
+            </Grid>
+        </Grid>
+
+
+        <Grid Visibility="{Binding vm.IsLoading}" Background="{DynamicResource backgroundLoading}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <metro:ProgressRing Foreground="{DynamicResource ringLoading}" MinWidth="65" MinHeight="65"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

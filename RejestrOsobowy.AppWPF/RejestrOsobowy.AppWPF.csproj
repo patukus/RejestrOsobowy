@@ -15,8 +15,4 @@
     <ProjectReference Include="..\RejestrOsobowy.Core\RejestrOsobowy.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\WindowViews\PersonWindowViews\" />
-  </ItemGroup>
-
 </Project>

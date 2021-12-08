@@ -38,7 +38,7 @@ namespace RejestrOsobowy.AppWPF.Database.JSON
             if (File.Exists(FilePath))
             {
                 ReadDataFromFile();
-                var person = PersonList.FirstOrDefault();
+                var person = PersonList.FirstOrDefault(c => c.Id == id);
                 return person;
             }
             else
