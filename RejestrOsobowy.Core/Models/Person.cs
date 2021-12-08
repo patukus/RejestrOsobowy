@@ -75,6 +75,23 @@ namespace RejestrOsobowy.Core.Models
             }
         }
 
+        private Adress userAdress = new Adress();
+        public Adress UserAdress
+        {
+            get
+            {
+                return userAdress;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    userAdress = value;
+                    OnPropertyChanged(nameof(UserAdress));
+                }
+            }
+        }
+
         private Gender gender;
         public Gender Gender
         {

@@ -67,6 +67,7 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
                 {
                     case OpenWindow.Add:
                         Selected = new Person();
+                        CreateViews();
                         await AddOn();
                         break;
                     case OpenWindow.Info:
@@ -83,8 +84,8 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
 
                 _PersonWindow = new PersonWindow(this)
                 {
-                    Width = 400,
-                    Height = 400,
+                    Width = 600,
+                    Height = 500,
                     Title = "Rejestr Osobowy"
                 };
 
@@ -159,6 +160,19 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
             get
             {
                 return _setButtonAddCommand ?? (_setButtonAddCommand = new CommandHandler(() => AddPerson(), __setButtonAddCommandCanExecute));
+            }
+        }
+
+        /// <summary>
+        /// Anulowanie dodania
+        /// </summary>
+        private readonly bool __setButtonCancelAddCommandCanExecute = true;
+        private ICommand _setButtonCancelAddCommand;
+        public ICommand SetButtonCancelAddCommand
+        {
+            get
+            {
+                return _setButtonCancelAddCommand ?? (_setButtonCancelAddCommand = new CommandHandler(() => _PersonWindow.Close(), __setButtonCancelAddCommandCanExecute));
             }
         }
 

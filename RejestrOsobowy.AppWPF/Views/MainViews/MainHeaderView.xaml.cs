@@ -1,4 +1,5 @@
 ﻿using RejestrOsobowy.AppWPF.ViewModels;
+using RejestrOsobowy.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,9 +31,9 @@ namespace RejestrOsobowy.AppWPF.Views.MainViews
             };
         }
 
-        private void AddPersonButton_Click(object sender, RoutedEventArgs e)
+        private async void AddPersonButton_Click(object sender, RoutedEventArgs e)
         {
-
+            await vm.MainProgram._PersonWindowViewModel.OpenPersonWindow(OpenWindow.Add);
         }
     }
 }

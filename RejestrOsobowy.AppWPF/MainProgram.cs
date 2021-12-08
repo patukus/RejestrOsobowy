@@ -2,6 +2,7 @@
 using RejestrOsobowy.AppWPF.Database;
 using RejestrOsobowy.AppWPF.Interfaces;
 using RejestrOsobowy.AppWPF.ViewModels;
+using RejestrOsobowy.AppWPF.ViewModels.WindowViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,8 @@ namespace RejestrOsobowy.AppWPF
 
         public MainViewModel _MainViewModel { get; set; }
 
+        public PersonWindowViewModel _PersonWindowViewModel { get; set; }
+
         public MainProgram(MainWindow mainWindow)
         {
             _MainWindow = mainWindow;
@@ -25,6 +28,7 @@ namespace RejestrOsobowy.AppWPF
             _ManagementOfDatabase = new _ManagementOfDatabase(this);
 
             _MainViewModel = new MainViewModel(this);
+            _PersonWindowViewModel = new PersonWindowViewModel(this);
         }
     }
 }
