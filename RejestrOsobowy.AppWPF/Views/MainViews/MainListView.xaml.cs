@@ -1,16 +1,7 @@
 ﻿using RejestrOsobowy.AppWPF.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+using RejestrOsobowy.Core.Enums;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RejestrOsobowy.AppWPF.Views.MainViews
 {
@@ -32,7 +23,7 @@ namespace RejestrOsobowy.AppWPF.Views.MainViews
 
         private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            vm.MainProgram._PersonWindowViewModel.OpenPersonWindow(OpenWindow.Info);
         }
     }
 }

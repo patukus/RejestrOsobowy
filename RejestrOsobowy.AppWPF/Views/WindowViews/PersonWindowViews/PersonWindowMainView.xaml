@@ -5,148 +5,185 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RejestrOsobowy.AppWPF.Views.WindowViews.PersonWindowViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-        
-        
+
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Imię" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.FirstName}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
+            <Label Content="Dane podstawowe" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-
+        
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Nazwisko" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.LastName}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Imię" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.FirstName}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Nazwisko" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.LastName}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Wiek" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.Age}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Płeć" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <ComboBox ItemsSource="{Binding vm.GenderList}" SelectedItem="{Binding vm.SelectedGender}" SelectedIndex="0" DisplayMemberPath="Name" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
         </Grid>
 
         <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Wiek" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.Age}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
+            <Label Content="Dane adresowe" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
 
         <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Ulica" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Ulica" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
 
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.UserAdress.Street}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.UserAdress.Street}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Nr Domu" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.UserAdress.StreetNumber}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Nr Mieszkania" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.UserAdress.FlatNumber}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Miasto" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.UserAdress.City}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                    <TextBlock Text="Kod pocztowy" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <TextBox Text="{Binding vm.Selected.UserAdress.PostCode}" Margin="0, 0, 10, 0" IsEnabled="{Binding vm.IsEnabled}" />
+                </StackPanel>
+            </Grid>
         </Grid>
-        
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Nr Domu" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.UserAdress.StreetNumber}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Nr Mieszkania" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.UserAdress.FlatNumber}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Miasto" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.UserAdress.City}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="7">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Kod pocztowy" FontSize="{Binding vm.mainProgram._MyFontSize.XL}" VerticalAlignment="Center" HorizontalAlignment="Right" />
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <TextBox Text="{Binding vm.Selected.UserAdress.PostCode}" Margin="0, 0, 10, 0" IsReadOnly="{Binding vm.IsReadOnly}" />
-            </StackPanel>
-        </Grid>
-
     </Grid>
 </UserControl>

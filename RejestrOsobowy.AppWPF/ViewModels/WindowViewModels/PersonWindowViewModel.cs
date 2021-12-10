@@ -6,7 +6,7 @@ using RejestrOsobowy.Core.Enums;
 using RejestrOsobowy.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -28,8 +28,43 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
 
             this.MainProgram = mainProgram;
             CreateViews();
+            CreateGenderList();
 
             IsLoading = IsLoadingFalse;
+        }
+
+        private List<GenderClass> genderList = new List<GenderClass>();
+        public List<GenderClass> GenderList
+        {
+            get
+            {
+                return genderList;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    genderList = value;
+                    OnPropertyChanged(nameof(GenderList));
+                }
+            }
+        }
+
+        private GenderClass selectedGender;
+        public GenderClass SelectedGender
+        {
+            get
+            {
+                return selectedGender;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    selectedGender = value;
+                    OnPropertyChanged(nameof(SelectedGender));
+                }
+            }
         }
 
         /// <summary>
@@ -53,6 +88,15 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
             }
         }
 
+        public void CreateGenderList()
+        {
+            if (GenderList.Count == 0)
+            {
+                GenderList.Add(new GenderClass() { Gender = Gender.Male, Name = "Mężczyzna" });
+                GenderList.Add(new GenderClass() { Gender = Gender.Female, Name = "Kobieta" });
+            }
+        }
+
         /// <summary>
         /// Otworzenie okna
         /// </summary>
@@ -72,11 +116,13 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
                         break;
                     case OpenWindow.Info:
                         Selected = MainProgram._MainViewModel.Selected;
+                        SelectedGender = GenderList.FirstOrDefault(c => c.Gender == Selected.Gender);
                         await AddOff();
                         await EditOff();
                         break;
                     case OpenWindow.Edit:
                         Selected = MainProgram._MainViewModel.Selected;
+                        SelectedGender = GenderList.FirstOrDefault(c => c.Gender == Selected.Gender);
                         await AddOff();
                         await EditOn();
                         break;
@@ -187,7 +233,10 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
                 IsLoading = IsLoadingTrue;
 
                 await Task.Delay(500);
-
+                if (SelectedGender != null)
+                {
+                    Selected.Gender = SelectedGender.Gender;
+                }
                 if (MainProgram._ManagementOfDatabase.IPerson.Insert(Selected))
                 {
                     await MainProgram._MainViewModel.GetList(true);
@@ -246,12 +295,13 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
 
                 await Task.Delay(500);
 
-                if (MessageBox.Show($"", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"Czy napewno chcesz usunąć tą osobę z rejestru?", "Pytanie", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     if (MainProgram._ManagementOfDatabase.IPerson.Delete(person.Id))
                     {
                         await MainProgram._MainViewModel.GetList(true);
                         Selected = null;
+                        _PersonWindow.Close();
                     }
                 }
 
@@ -261,6 +311,7 @@ namespace RejestrOsobowy.AppWPF.ViewModels.WindowViewModels
             catch (Exception ex)
             {
                 IsLoading = IsLoadingFalse;
+                MainProgram._MainViewModel.IsLoading = IsLoadingFalse;
             }
         }
     }

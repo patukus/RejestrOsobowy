@@ -1,17 +1,7 @@
 ﻿using RejestrOsobowy.AppWPF.ViewModels;
 using RejestrOsobowy.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RejestrOsobowy.AppWPF.Views.MainViews
 {
@@ -34,6 +24,11 @@ namespace RejestrOsobowy.AppWPF.Views.MainViews
         private async void AddPersonButton_Click(object sender, RoutedEventArgs e)
         {
             await vm.MainProgram._PersonWindowViewModel.OpenPersonWindow(OpenWindow.Add);
+        }
+
+        private void SeedDatabaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SeedDatabase();
         }
     }
 }

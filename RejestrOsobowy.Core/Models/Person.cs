@@ -1,12 +1,23 @@
 ﻿using RejestrOsobowy.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RejestrOsobowy.Core.Models
 {
     public class Person : _ParentModel
     {
+        public Person()
+        {
+
+        }
+
+        public Person(string firstName, string lastName, int age, Gender gender, Adress adress)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
+            Gender = gender;
+            UserAdress = adress;
+        }
+
         private int id;
         public int Id
         {
@@ -105,6 +116,43 @@ namespace RejestrOsobowy.Core.Models
                 {
                     gender = value;
                     OnPropertyChanged(nameof(Gender));
+                }
+            }
+        }
+    }
+
+    public class GenderClass : _ParentModel
+    {
+        private Gender gender;
+        public Gender Gender
+        {
+            get
+            {
+                return gender;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    gender = value;
+                    OnPropertyChanged(nameof(Gender));
+                }
+            }
+        }
+
+        private string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    name = value;
+                    OnPropertyChanged(nameof(Name));
                 }
             }
         }

@@ -8,6 +8,7 @@
              d:DesignHeight="50" d:DesignWidth="800">
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="SeedDatabaseButton" Grid.Row="1" Style="{DynamicResource ButtonAdd}" Content="Zasiej bazę danych" FontSize="{Binding vm.mainProgram._MyFontSize.M}" Margin="5" Click="SeedDatabaseButton_Click"/>
             <Button x:Name="AddPersonButton" Grid.Row="1" Style="{DynamicResource ButtonAdd}" Content="Dodaj Osobę" FontSize="{Binding vm.mainProgram._MyFontSize.M}" Margin="5" Click="AddPersonButton_Click"/>
         </StackPanel>
     </Grid>

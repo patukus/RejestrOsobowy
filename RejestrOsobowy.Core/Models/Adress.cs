@@ -1,11 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RejestrOsobowy.Core.Models
+﻿namespace RejestrOsobowy.Core.Models
 {
     public class Adress : _ParentModel
     {
+        public Adress()
+        {
+
+        }
+
+        public Adress(string street, string streetNumber, string flatNumber, string city, string postCode)
+        {
+            Street = street;
+            StreetNumber = streetNumber;
+            FlatNumber = flatNumber;
+            City = city;
+            PostCode = postCode;
+        }
+
         private string postCode;
         public string PostCode
         {

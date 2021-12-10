@@ -3,7 +3,6 @@ using RejestrOsobowy.AppWPF.Views.MainViews;
 using RejestrOsobowy.Core.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -26,6 +25,7 @@ namespace RejestrOsobowy.AppWPF.ViewModels
 
             this.MainProgram = mainProgram;
             CreateViews();
+            GetList(true);
             _SearchTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(500)
@@ -59,6 +59,20 @@ namespace RejestrOsobowy.AppWPF.ViewModels
             catch (Exception ex)
             {
 
+            }
+        }
+
+        public async void SeedDatabase()
+        {
+            IsLoading = IsLoadingTrue;
+            await Task.Delay(500);
+            if (MainProgram._ManagementOfDatabase.IPerson.SeedDatabase())
+            {
+                GetList(true);
+            }
+            else
+            {
+                IsLoading = IsLoadingFalse;
             }
         }
 

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid x:Name="dataGrid" Margin="5,5" Style="{DynamicResource DataGrid}" RowStyle="{DynamicResource DataGridRow}" CellStyle="{DynamicResource DataGridCell}" ItemsSource="{Binding ListShow}" SelectedItem="{Binding Selected}" HorizontalScrollBarVisibility="Hidden" AutoGenerateColumns="False" CanUserAddRows="false" CanUserReorderColumns="False" CanUserSortColumns="True" CanUserResizeColumns="True" CanUserResizeRows="False"  MouseDoubleClick="dataGrid_MouseDoubleClick">
+        <DataGrid x:Name="dataGrid" Margin="5,5" Style="{DynamicResource DataGrid}" RowStyle="{DynamicResource DataGridRow}" CellStyle="{DynamicResource DataGridCell}" ItemsSource="{Binding vm.ListShow}" SelectedItem="{Binding vm.Selected}" HorizontalScrollBarVisibility="Hidden" AutoGenerateColumns="False" CanUserAddRows="false" CanUserReorderColumns="False" CanUserSortColumns="True" CanUserResizeColumns="True" CanUserResizeRows="False"  MouseDoubleClick="dataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="1*">
                     <DataGridTemplateColumn.HeaderTemplate>

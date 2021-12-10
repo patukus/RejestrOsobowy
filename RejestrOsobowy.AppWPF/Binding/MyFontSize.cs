@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RejestrOsobowy.AppWPF.Binding
+﻿namespace RejestrOsobowy.AppWPF.Binding
 {
     public class MyFontSize : NotifyPropertyChanged
     {

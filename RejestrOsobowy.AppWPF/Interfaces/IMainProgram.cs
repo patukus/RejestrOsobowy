@@ -2,9 +2,6 @@
 using RejestrOsobowy.AppWPF.Database;
 using RejestrOsobowy.AppWPF.ViewModels;
 using RejestrOsobowy.AppWPF.ViewModels.WindowViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RejestrOsobowy.AppWPF.Interfaces
 {
