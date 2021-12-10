@@ -75,7 +75,7 @@ namespace RejestrOsobowy.AppWPF.Database.JSON
             {
                 var ss = search.ToLower().Trim();
                 ReadDataFromFile();
-                var list = PersonList.Where(c => c.FirstName.ToLower().Contains(search) || c.LastName.ToLower().Contains(search)).ToList();
+                var list = PersonList.Where(c => c.FirstName.ToLower().Contains(ss) || c.LastName.ToLower().Contains(ss)).ToList();
                 return list;
             }
             else
